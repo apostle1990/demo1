@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.Dao.match_newsMapper" >
+  <resultMap id="BaseResultMap" type="com.example.Po.match_news" >
+    <id column="newsId" property="newsid" jdbcType="INTEGER" />
+    <id column="matchId" property="matchid" jdbcType="INTEGER" />
+    <result column="newstitle" property="newstitle" jdbcType="VARCHAR" />
+    <result column="matchnews" property="matchnews" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    newsId,matchId, newstitle,matchnews
+  </sql>
+  <select id="select" resultType="com.example.Po.match_news">
+    select *
+    from match_news
+  </select>
+  <delete id="deleteMn"  parameterType="com.example.Po.match_news" >
+    delete from match_news
+    where newsId = #{newsid,jdbcType=INTEGER}
+  </delete>
+  <insert id="addMn"   parameterType="com.example.Po.match_news" >
+    insert into match_news (matchId, newstitle, matchnews)
+    values (#{matchid,jdbcType=INTEGER}, #{newstitle,jdbcType=VARCHAR} ,#{matchnews,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateMn"  parameterType="com.example.Po.match_news" >
+    update match_news
+    <set >
+      <if test="matchid != null" >
+        matchId = #{matchid,jdbcType=VARCHAR},
+      </if>
+      <if test="newstitle != null" >
+        newstitle = #{newstitle,jdbcType=VARCHAR},
+      </if>
+      <if test="matchnews != null" >
+        matchnews = #{matchnews,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where newsId = #{newsid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.Dao.student_work_managementMapper" >
+  <resultMap id="BaseResultMap" type="com.example.Po.student_work_management" >
+    <id column="worksId" property="worksid" jdbcType="INTEGER" />
+    <id column="studentId" property="studentid" jdbcType="INTEGER" />
+    <result column="workstitle" property="workstitle" jdbcType="VARCHAR" />
+    <result column="worksContext" property="workscontext" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    worksId, studentId, workstitle, worksContext
+  </sql>
+  <select id="stuworks" resultType="com.example.Po.student_work_management" parameterType="com.example.Po.student_work_management" >
+    select workstitle,workscontext
+    from student_work_management
+    where worksId = #{worksid,jdbcType=INTEGER}
+    and studentId = #{studentid,jdbcType=INTEGER}
+  </select>
+  <select id="stuallworks" resultType="com.example.Po.student_work_management" parameterType="com.example.Po.student_work_management" >
+    select *
+    from student_work_management
+    where studentId = #{studentid,jdbcType=INTEGER}
+  </select>
+
+  <select id="stualloneworks" resultType="com.example.Po.student_work_management" parameterType="com.example.Po.student_work_management" >
+    select *
+    from student_work_management
+    where worksId = #{worksid,jdbcType=INTEGER}
+  </select>
+</mapper>

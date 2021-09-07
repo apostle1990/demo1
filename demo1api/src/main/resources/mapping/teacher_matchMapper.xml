@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.Dao.teacher_matchMapper" >
+  <resultMap id="BaseResultMap" type="com.example.Po.teacher_match" >
+    <id column="teacherId" property="teacherid" jdbcType="INTEGER" />
+    <id column="matchId" property="matchid" jdbcType="INTEGER" />
+  </resultMap>
+  <select id="selectmatch" resultType="com.example.Po.teacher_match">
+    select matchId
+    from teacher_match
+    where teacherId = #{teacherid,jdbcType=INTEGER}
+  </select>
+  <select id="selectteacher" resultType="com.example.Po.teacher_match">
+    select teacherId
+    from teacher_match
+    where matchId = #{matchid,jdbcType=INTEGER}
+  </select>
+  <insert id="addmt" parameterType="com.example.Po.teacher_match" >
+    insert into teacher_match (teacherId, matchId)
+    values (#{teacherid,jdbcType=INTEGER}, #{matchid,jdbcType=INTEGER})
+  </insert>
+  <delete id="deletemt" parameterType="com.example.Po.teacher_match" >
+    delete from teacher_match
+    where teacherId = #{teacherid,jdbcType=INTEGER}
+      and matchId = #{matchid,jdbcType=INTEGER}
+  </delete>
+</mapper>

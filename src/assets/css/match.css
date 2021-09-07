@@ -1,0 +1,300 @@
+.view {
+    height: 100%;
+}
+.header-box {
+    height: 60px;
+    display: none;
+}
+element.style {
+    background: rgb(61, 129, 255);
+}
+.header_wrap {
+    width: 100%;
+    position: relative;
+    min-height: 60px;
+    z-index: 99;
+}
+.t-head-con {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 60px;
+}
+.el-row {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+[class*=el-col-] {
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.nav .logo-h {
+    cursor: pointer;
+}
+.nav .logo {
+    width: 236px;
+    height: 100%;
+    line-height: 60px;
+}
+.el-col-24 {
+    width: 100%;
+}
+.nav .logo .logo_icon {
+    display: inline-block;
+    height: 28px;
+    vertical-align: middle;
+    transform: translateY(-2px);
+}
+
+.join_button_wrap {
+    right: 139px;
+}
+
+.join_button_wrap {
+    position: absolute;
+    right: 57px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.join_button_wrap .button {
+    width: 90px;
+    height: 30px;
+    border-radius: 20px;
+    color: #fff;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    background-color: transparent;
+    font-size: 14px;
+}
+button {
+    outline: none;
+    padding: 0;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.login {
+    right: 72px;
+}
+
+.login {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+}
+.t-head-con {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 60px;
+}
+.work-detail {
+    background: #f4f4f4;
+    padding-bottom: 150px;
+}
+.navm {
+    color: #666;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 29px 0;
+    font-weight: 300;
+    width: 1100px;
+    margin: auto;
+}
+.navm span {
+    cursor: pointer;
+}
+.navm i {
+    margin: 0 9px;
+    color: #666;
+    font-size: 14px;
+}
+.navm i {
+    margin: 0 9px;
+    color: #666;
+    font-size: 14px;
+}
+.scratch-work {
+    background: #f4f4f4;
+}
+.work-item {
+    width: 1100px;
+    height: 531px;
+    background: #fff;
+    margin: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px 0 rgba(36,36,36,.13);
+}
+.work-detail {
+    display: -ms-flexbox;
+    display: flex;
+}
+
+
+.work-detail .work-cover span {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    z-index: 1;
+    left: 50%;
+    top: -65px;
+    transform: translateX(-50%);
+    transition: top .5s;
+}
+
+.work-detail .work-cover iframe {
+    position: relative;
+    z-index: 10;
+    -webkit-overflow-scrolling: touch;
+    height: 446px;
+    width: 680px;
+    min-width: 446px;
+    overflow: hidden;
+}
+
+.work-info{
+    -ms-flex: 1;
+    flex: 1;
+    padding-top: 23px;
+}
+.work-info h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 6px;
+    padding: 0 30px;
+    width: 300px;
+    height: 33px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.personal-wrap {
+    padding: 0 30px;
+    margin-bottom: 10px;
+}
+.personal {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    overflow: hidden;
+}
+.personal-wrap {
+    padding: 0 30px;
+    margin-bottom: 10px;
+}
+.personal {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    overflow: hidden;
+}
+.personal .name {
+    color: #333;
+    font-size: 16px;
+    margin-right: 6px;
+    max-width: 126px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.personal .school {
+    width: 120px;
+    color: #666;
+    font-size: 14px;
+    line-height: 10px;
+    padding-left: 6px;
+    border-left: 1px solid #d8d8d8;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.work-explain-wrap {
+    padding: 0 30px;
+    overflow-y: auto;
+}
+.work-explain {
+    height: 340px;
+    text-align: justify;
+    word-break: break-all;
+}
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    text-decoration: none;
+    line-height: 1.5em;
+}
+.explain-item {
+    margin-bottom: 20px;
+}
+.work-explain h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.work-explain .explain {
+    white-space: pre-line;
+    overflow: hidden;
+    transition: all .5s;
+}
+.work-explain P {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+}
+.form_container {
+    background-color: #f4f4f4;
+    padding: 50px 0 130px;
+}
+.form_container .sign-box {
+    width: 1200px;
+    height: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 1px 4px 0 rgba(36,36,36,.13);
+    border-radius: 8px;
+}
+h1 {
+    font-size: 24px;
+    line-height: 36px;
+    padding: 80px 0 40px;
+    color: #444;
+    text-align: center;
+}
+
+.form_container .sign-form {
+    padding-left: 350px;
+}
+.el-form-item {
+    margin-bottom: 22px;
+}
+.sign-btn {
+    display: block;
+    width: 160px;
+    height: 44px;
+    border-radius: 5px;
+    margin: 40px auto auto;
+    font-size: 16px;
+    color: #fff;
+}
+button {
+    outline: none;
+    padding: 0;
+    border: 1px solid transparent;
+    cursor: pointer;
+}

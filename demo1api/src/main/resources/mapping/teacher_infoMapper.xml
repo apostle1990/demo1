@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.Dao.teacher_infoMapper" >
+  <resultMap id="BaseResultMap" type="com.example.Po.teacher_info" >
+    <id column="teacherId" property="teacherid" jdbcType="INTEGER" />
+    <id column="telephone" property="telephone" jdbcType="INTEGER" />
+    <result column="teacherName" property="teachername" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    teacherId, telephone, teacherName, password, email, qq
+  </sql>
+  <select id="login" resultType="com.example.Po.teacher_info">
+    select *
+    from teacher_info
+    where password = #{password} AND telephone = #{telephone}
+  </select>
+  <select id="selectAll" resultType="com.example.Po.teacher_info">
+    select *
+    from teacher_info
+  </select>
+  <select id="selectTeacher" resultType="com.example.Po.teacher_info">
+    select teacherId,teacherName
+    from teacher_info
+    where teacherId = #{teacherid,jdbcType=INTEGER}
+  </select>
+  <select id="selectteacherid" resultType="INTEGER">
+    select teacherid
+    from teacher_info
+    where telephone = #{telephone}
+  </select>
+  <select id="selecttelephone" resultType="com.example.Po.teacher_info">
+    select *
+    from teacher_info
+    where telephone = #{telephone}
+  </select>
+  <insert id="addteacher" parameterType="com.example.Po.teacher_info" >
+      insert into teacher_info (telephone, teacherName,
+      password, email, qq
+      )
+    values (#{telephone,jdbcType=INTEGER}, #{teachername,jdbcType=VARCHAR},
+      #{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{qq,jdbcType=INTEGER}
+      )
+  </insert>
+  <delete id="deleteteacher" parameterType="com.example.Po.teacher_info" >
+    delete from teacher_info
+    where teacherId = #{teacherid,jdbcType=INTEGER}
+  </delete>
+  <update id="updateteacher" parameterType="com.example.Po.teacher_info" >
+    update teacher_info
+    <set >
+      <if test="teachername != null" >
+        teacherName = #{teachername,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=INTEGER},
+      </if>
+    </set>
+    where teacherId = #{teacherid,jdbcType=INTEGER}
+  </update>
+</mapper>

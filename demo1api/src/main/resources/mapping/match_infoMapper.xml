@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.Dao.match_infoMapper" >
+  <resultMap id="BaseResultMap" type="com.example.Po.match_info" >
+    <id column="matchId" property="matchid" jdbcType="INTEGER" />
+    <result column="matchName" property="matchname" jdbcType="VARCHAR" />
+    <result column="matchContext" property="matchcontext" jdbcType="VARCHAR" />
+    <result column="matchState" property="matchstate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    matchId, matchName, matchContext, matchState
+  </sql>
+  <select id="SelectAll" resultType="com.example.Po.match_info" >
+    select *
+    from match_info
+  </select>
+  <select id="selectmatch" resultType="com.example.Po.match_info" >
+    select *
+    from match_info
+    where matchId = #{matchid,jdbcType=INTEGER}
+  </select>
+  <insert id="addmatch" parameterType="com.example.Po.match_info" >
+    insert into match_info (matchName, matchContext,
+      matchState)
+    values (#{matchname,jdbcType=VARCHAR}, #{matchcontext,jdbcType=VARCHAR},
+      #{matchstate,jdbcType=VARCHAR})
+  </insert>
+  <delete id="deletematch" parameterType="com.example.Po.match_info" >
+    delete from match_info
+    where matchId = #{matchid,jdbcType=INTEGER}
+  </delete>
+  <update id="updatematch" parameterType="com.example.Po.match_info" >
+    update match_info
+    <set >
+      <if test="matchname != null" >
+        matchName = #{matchname,jdbcType=VARCHAR},
+      </if>
+      <if test="matchcontext != null" >
+        matchContext = #{matchcontext,jdbcType=VARCHAR},
+      </if>
+      <if test="matchstate != null" >
+        matchState = #{matchstate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where matchId = #{matchid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.Dao.messageMapper" >
+  <resultMap id="BaseResultMap" type="com.example.Po.message" >
+    <id column="contextId" property="contextid" jdbcType="INTEGER" />
+    <result column="context" property="context" jdbcType="VARCHAR" />
+    <result column="ts" property="ts" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    contextId, context, ts
+  </sql>
+  <select id="SelectAll" resultType="com.example.Po.message" >
+    select *
+    from message
+  </select>
+  <select id="SelectOne" resultType="com.example.Po.message" >
+    select *
+    from message
+    where ts = #{ts,jdbcType=VARCHAR} OR ts = "全部"
+  </select>
+  <select id="selectmessage" resultType="com.example.Po.message" >
+    select *
+    from message
+    where contextId = #{contextid,jdbcType=INTEGER}
+  </select>
+  <delete id="deletemessage" parameterType="java.lang.Integer" >
+    delete from message
+    where contextId = #{contextid,jdbcType=INTEGER}
+  </delete>
+  <insert id="addmessage" parameterType="com.example.Po.message" >
+    insert into message ( context, ts
+      )
+    values (#{context,jdbcType=VARCHAR}, #{ts,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updatemessage" parameterType="com.example.Po.message" >
+    update message
+    <set >
+      <if test="context != null" >
+        context = #{context,jdbcType=VARCHAR},
+      </if>
+      <if test="ts != null" >
+        ts = #{ts,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where contextId = #{contextid,jdbcType=INTEGER}
+  </update>
+</mapper>

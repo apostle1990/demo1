@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.Dao.administrator_infoMapper" >
+  <resultMap id="BaseResultMap" type="com.example.Po.administrator_info" >
+    <id column="administratorId" property="administratorid" jdbcType="INTEGER" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    administratorId, PASSWORD
+  </sql>
+  <select id="login" resultType="com.example.Po.administrator_info" >
+    select *
+    from administrator_info
+    where administratorId = #{administratorid} AND PASSWORD = #{password}
+  </select>
+  <select id="selectAll" resultType="com.example.Po.administrator_info">
+    select *
+    from administrator_info
+  </select>
+  <select id="selectadid" resultType="com.example.Po.administrator_info">
+    select *
+    from administrator_info
+    where administratorId = #{administratorid}
+  </select>
+  <insert id="addAD" parameterType="com.example.Po.administrator_info" >
+    insert into administrator_info (administratorId, PASSWORD)
+    values (#{administratorid,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <delete id="deleteAD" parameterType="com.example.Po.administrator_info" >
+    delete from administrator_info
+    where administratorId = #{administratorid,jdbcType=INTEGER}
+  </delete>
+  <update id="updateAD" parameterType="com.example.Po.administrator_info" >
+    update administrator_info
+    <set >
+      <if test="password != null" >
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where administratorId = #{administratorid,jdbcType=INTEGER}
+  </update>
+</mapper>
